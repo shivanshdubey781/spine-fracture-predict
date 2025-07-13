@@ -2,14 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Medical Glassmorphism Design System - All colors in HSL format */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Medical-themed glassmorphism palette */
+    --background: 210 100% 97%;
+    --foreground: 215 25% 27%;
+    
+    /* Medical blue gradient backgrounds */
+    --medical-bg-1: 210 100% 97%;
+    --medical-bg-2: 220 100% 95%;
+    --medical-accent: 210 85% 65%;
+    --medical-primary: 215 85% 60%;
+    
+    /* Glass effects */
+    --glass-bg: 220 100% 98%;
+    --glass-border: 220 60% 85%;
+    --glass-shadow: 210 25% 15%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,17 +27,17 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 215 85% 60%;
+    --primary-foreground: 220 100% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 100% 98%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 60% 95%;
+    --muted-foreground: 215 20% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 85% 65%;
+    --accent-foreground: 220 100% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -100,6 +110,30 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-medical-bg-1 to-medical-bg-2 text-foreground font-inter;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glassmorphism components */
+  .glass-panel {
+    @apply backdrop-blur-md bg-glass-bg/60 border border-glass-border/30 rounded-2xl shadow-lg;
+    box-shadow: 0 8px 32px 0 hsl(var(--glass-shadow) / 0.12);
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-md bg-primary/80 hover:bg-primary/90 text-primary-foreground;
+    @apply border border-white/20 rounded-xl transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl hover:scale-105;
+  }
+  
+  .glass-input {
+    @apply backdrop-blur-md bg-white/50 border border-white/30 rounded-xl;
+    @apply focus:bg-white/70 focus:border-primary/50 transition-all duration-300;
+  }
+  
+  .medical-gradient {
+    background: linear-gradient(135deg, hsl(var(--medical-bg-1)), hsl(var(--medical-bg-2)));
   }
 }

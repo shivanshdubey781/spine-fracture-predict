@@ -18,12 +18,24 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Medical theme colors
+				'medical-bg-1': 'hsl(var(--medical-bg-1))',
+				'medical-bg-2': 'hsl(var(--medical-bg-2))',
+				'medical-accent': 'hsl(var(--medical-accent))',
+				'medical-primary': 'hsl(var(--medical-primary))',
+				'glass-bg': 'hsl(var(--glass-bg))',
+				'glass-border': 'hsl(var(--glass-border))',
+				'glass-shadow': 'hsl(var(--glass-shadow))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
